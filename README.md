@@ -30,7 +30,14 @@ You should see (venv) appear at the beginning of your command prompt, indicating
 pip install -r requirements.txt
 ```
 
-## Step 4: Run the Server
+## Step 4: Make the Migrations
+
+```bash
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+## Step 5: Run the Server
 
 ```bash
 python manage.py runserver
@@ -38,7 +45,7 @@ python manage.py runserver
 
 By default, the server will run on <http://127.0.0.1:8000/>.
 
-## Step 5: Deactivate Virtual Environment
+## Step 6: Deactivate Virtual Environment
 
 ```bash
 deactivate
