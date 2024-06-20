@@ -10,4 +10,7 @@ router.register(r'recipes', RecipesViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('recipes/<int:pk>/comments/', 
+         RecipesViewSet.as_view({'get': 'comments', 'post': 'comments'}),
+         name='recipe-comments')
 ]
