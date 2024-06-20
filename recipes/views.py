@@ -13,10 +13,6 @@ class RecipesViewSet(viewsets.ModelViewSet):
     queryset = Recipe.objects.prefetch_related('comments').all()
     serializer_class = RecipeSerializer
 
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-
     @action(detail=True, methods=['get', 'post'])
     def comments(self, request, pk=None):
         recipe = self.get_object()
