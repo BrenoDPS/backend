@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Recipe, Category
+from .models import Recipe, Category, Comment
+
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 0
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'image')
@@ -12,6 +17,9 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = ('category', 'rate', 'author')
     search_fields = ('name', 'description', 'ingredients', 'preparation')
     raw_id_fields = ('author',)
+    inlines = [CommentInline]
+    
 
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment)

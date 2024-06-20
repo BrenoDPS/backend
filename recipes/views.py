@@ -11,8 +11,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.prefetch_related('recipes').all()
     serializer_class = CategorySerializer
 
-# class RecipesViewSet(viewsets.ModelViewSet):
-#     # def get(self, request, format=None):
-#         queryset = Recipe.objects.all()
-#         serializer = RecipeSerializer(queryset, many=True)
-#         # return Response(serializer.data)
+class RecipesViewSet(viewsets.ModelViewSet):
+    queryset = Recipe.objects.prefetch_related('comments').all()
+    serializer_class = RecipeSerializer
