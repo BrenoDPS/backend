@@ -14,6 +14,7 @@ class Category(models.Model):
 class Recipe(models.Model):
   category = models.ForeignKey(Category, related_name='recipes', on_delete=models.CASCADE, default=None)
   name = models.CharField(max_length=100)
+  rate = models.IntegerField(default=3)
   description = models.TextField()
 
   ingredients = models.TextField()
